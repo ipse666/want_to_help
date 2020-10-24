@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vbt-GI-qW2">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIText-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Launch Loading View Controller-->
+        <scene sceneID="3RU-iD-NEp">
+            <objects>
+                <viewController id="Vbt-GI-qW2" customClass="LaunchLoadingViewController" customModule="WantToHelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W56-8b-cL3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4cw-Nc-bcM">
+                                <rect key="frame" x="64" y="197" width="247" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="2AW-Q4-2Wj"/>
+                                    <constraint firstAttribute="width" constant="247" id="tWD-dn-BWY"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="simbirSoftLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vAo-QB-EPK">
+                                <rect key="frame" x="129.5" y="602.5" width="116" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="Hcl-g2-Sib"/>
+                                    <constraint firstAttribute="height" constant="16" id="bVB-BM-U1M"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Загрузка..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvp-Ir-GN0">
+                                <rect key="frame" x="137.5" y="413" width="100" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="c3t-ai-fiu"/>
+                                    <constraint firstAttribute="width" constant="100" id="lir-v1-cUP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI  Text" pointSize="13"/>
+                                <color key="textColor" name="charcoalGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tdT-j6-uYf">
+                                <rect key="frame" x="162.5" y="355" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5bD-5v-OBm"/>
+                                    <constraint firstAttribute="height" constant="50" id="X7Y-FH-SXf"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qDH-TR-hzk"/>
+                        <color key="backgroundColor" name="paleGrey"/>
+                        <constraints>
+                            <constraint firstItem="cvp-Ir-GN0" firstAttribute="top" secondItem="tdT-j6-uYf" secondAttribute="bottom" constant="8" id="07K-bA-f9U"/>
+                            <constraint firstItem="qDH-TR-hzk" firstAttribute="bottom" secondItem="vAo-QB-EPK" secondAttribute="bottom" constant="48.5" id="1KR-gp-Bjl"/>
+                            <constraint firstItem="4cw-Nc-bcM" firstAttribute="top" secondItem="qDH-TR-hzk" secondAttribute="top" constant="197" id="4ln-u7-ykQ"/>
+                            <constraint firstItem="4cw-Nc-bcM" firstAttribute="centerX" secondItem="W56-8b-cL3" secondAttribute="centerX" id="8xc-Zr-ULG"/>
+                            <constraint firstItem="tdT-j6-uYf" firstAttribute="centerX" secondItem="W56-8b-cL3" secondAttribute="centerX" id="O8y-mj-5do"/>
+                            <constraint firstItem="cvp-Ir-GN0" firstAttribute="centerX" secondItem="W56-8b-cL3" secondAttribute="centerX" id="Xdg-kT-zT9"/>
+                            <constraint firstItem="vAo-QB-EPK" firstAttribute="centerX" secondItem="W56-8b-cL3" secondAttribute="centerX" id="m5j-nI-qmL"/>
+                            <constraint firstItem="cvp-Ir-GN0" firstAttribute="top" secondItem="4cw-Nc-bcM" secondAttribute="bottom" constant="142" id="r4l-1c-l6q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="preloader" destination="tdT-j6-uYf" id="TUJ-fZ-Dgz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Phg-vT-bHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-226.40000000000001" y="144.3778110944528"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="simbirSoftLogo" width="116" height="16"/>
+        <image name="splashLogo" width="251" height="77"/>
+        <namedColor name="charcoalGrey">
+            <color red="0.28627450980392155" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="paleGrey">
+            <color red="0.93699997663497925" green="0.95300000905990601" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
