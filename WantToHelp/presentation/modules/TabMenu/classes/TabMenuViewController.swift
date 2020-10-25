@@ -46,15 +46,15 @@ extension TabMenuViewController: TabbarControllerDelegate {
     func selectButton(button: TabbarButton) {
         switch button {
         case .news:
-            title = "Новости"
+            title = Constants.ui.pageTitles.news
         case .search:
-            title = "Поиск"
+            title = Constants.ui.pageTitles.search
         case .help:
-            title = "Помочь"
+            title = Constants.ui.pageTitles.help
         case .history:
-            title = "История"
+            title = Constants.ui.pageTitles.history
         case .profile:
-            title = "Профиль"
+            title = Constants.ui.pageTitles.profile
         }
     }
 }
