@@ -11,8 +11,7 @@ import UIKit
 class TabMenuBuilder {
 
     func configure() -> UIViewController {
-        let nav = UIStoryboard.init(name: "TabMenu", bundle: nil).instantiateInitialViewController() as! UINavigationController
-        let viewController = nav.viewControllers.first as! TabMenuViewController
+        let viewController = R.storyboard.tabMenu.instantiateInitialViewController()! as TabMenuViewController
 
         let router = TabMenuRouter()
         router.transitionHandler = viewController
@@ -27,7 +26,7 @@ class TabMenuBuilder {
         presenter.interactor = interactor
         viewController.output = presenter
 
-        return nav
+        return viewController
     }
 
 }

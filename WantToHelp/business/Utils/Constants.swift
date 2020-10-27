@@ -14,11 +14,11 @@ struct Constants {
             static let centralButtonOffset: CGFloat = 15.0
         }
         struct pageTitles {
-            static let news = "Новости"
-            static let search = "Поиск"
-            static let help = "Помочь"
-            static let history = "История"
-            static let profile = "Профиль"
+            static let news = NSLocalizedString("Новости", comment: "")
+            static let search = NSLocalizedString("Поиск", comment: "")
+            static let help = NSLocalizedString("Помочь", comment: "")
+            static let history = NSLocalizedString("История", comment: "")
+            static let profile = NSLocalizedString("Профиль", comment: "")
         }
     }
 }

@@ -50,7 +50,6 @@ class RootTabBar: UITabBar {
         
         super.layoutSubviews()
         
-        let buttonX = self.frame.size.width/5
         var index = 0
         for barButton in self.subviews {
             if barButton.isKind(of: NSClassFromString("UITabBarButton")!){
@@ -58,7 +57,6 @@ class RootTabBar: UITabBar {
                     addButton.frame.size = CGSize.init(width: (addButton.currentBackgroundImage?.size.width)!, height: (addButton.currentBackgroundImage?.size.height)!)
                     addButton.center = CGPoint.init(x: self.center.x, y: self.frame.size.height/2 - Constants.ui.tabbar.centralButtonOffset)
                 }
-                barButton.frame = CGRect.init(x: buttonX * CGFloat(index), y: 0, width: buttonX, height: self.frame.size.height)
                 index += 1
             }
         }

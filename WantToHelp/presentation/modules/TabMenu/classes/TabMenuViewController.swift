@@ -8,7 +8,11 @@
 
 import UIKit
 
-class TabMenuViewController: UIViewController {
+protocol TabbarControllerDelegate: NSObjectProtocol {
+    func selectButton(button: TabbarButton)
+}
+
+class TabMenuViewController: UITabBarController, RootTabBarDelegate  {
 
     var output: TabMenuViewOutput!
 
@@ -22,6 +26,15 @@ class TabMenuViewController: UIViewController {
     @IBAction func backArrowPressed(_ sender: Any) {
         exit(-1)
     }
+    
+    func addClick() {
+        selectedIndex = TabbarButton.help.rawValue
+        selectButton(button: .help)
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        selectButton(button: TabbarButton(rawValue: item.tag)!)
+    }
 }
 
 // MARK:- <TabMenuViewInput>
@@ -33,12 +46,10 @@ extension TabMenuViewController: TabMenuViewInput {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "OfficinaSansExtraBoldSCC", size: 21) as Any, NSAttributedString.Key.foregroundColor:UIColor.white]
         UITabBar.appearance().barTintColor = .white
         UITabBar.appearance().backgroundColor = .white
-        if let tabbarController = self.children.first as? TabbarController {
-            let tb: TabbarController = tabbarController
-            tb.selectedIndex = TabbarButton.help.rawValue
-            tb.tabbarDelegate = self
-            title = Constants.ui.pageTitles.help
-        }
+        let tab = RootTabBar()
+        tab.addDelegate = self
+        self.setValue(tab, forKey: "tabBar")
+        self.selectedIndex = TabbarButton.help.rawValue
     }
 }
 
