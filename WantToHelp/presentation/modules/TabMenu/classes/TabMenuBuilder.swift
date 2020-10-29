@@ -11,7 +11,7 @@ import UIKit
 class TabMenuBuilder {
 
     func configure() -> UIViewController {
-        let viewController = R.storyboard.tabMenu.instantiateInitialViewController()! as TabMenuViewController
+        let viewController = R.storyboard.tabMenu.instantiateInitialViewController()!
 
         let router = TabMenuRouter()
         router.transitionHandler = viewController
