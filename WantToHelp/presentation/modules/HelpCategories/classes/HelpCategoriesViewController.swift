@@ -58,7 +58,8 @@ extension HelpCategoriesViewController: UICollectionViewDelegate {
 // MARK:- <HelpCategoriesViewInput>
 extension HelpCategoriesViewController: HelpCategoriesViewInput {
     func setupInitialState(helpes: [HelpItem]) {
+        title = Constants.ui.pageTitles.help
         self.helpes = helpes
-        self.collectionView.reloadData()
+        collectionView.reloadData()
     }
 }

@@ -1,9 +1,9 @@
 //
-//  BaseRouter.swift
-//  evoclub
+//  LaunchLoadingViewController.swift
+//  WantToHelp
 //
-//  Created by Vitaliy Zaretskiy on 16/04/2019.
-//  Copyright © 2019 Studio-Evolution. All rights reserved.
+//  Created by v.vaskin on 24/10/2020.
+//  Copyright © 2020 SimbirSoft. All rights reserved.
 //
 
 import UIKit

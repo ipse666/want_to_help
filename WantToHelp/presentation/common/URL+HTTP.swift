@@ -1,6 +1,9 @@
 //
-//  Created by Ivano Bilenchi on 16/05/18.
-//  Copyright © 2018 Ivano Bilenchi. All rights reserved.
+//  LaunchLoadingViewController.swift
+//  WantToHelp
+//
+//  Created by v.vaskin on 24/10/2020.
+//  Copyright © 2020 SimbirSoft. All rights reserved.
 //
 
 import Foundation

@@ -8,8 +8,8 @@
 import Foundation
 
 struct HelpItem: Codable {
-    var name: String!
-    var photoName: String!
+    var name: String
+    var photoName: String 
     
     enum CodingKeys: String, CodingKey {
         case name, photoName
