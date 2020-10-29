@@ -26,7 +26,7 @@ extension HelpCategoriesPresenter: HelpCategoriesViewOutput {
     
     func createTestModel() -> [HelpItem] {
         testModel.removeAll()
-        testModel.append(HelpItem(name: "Дети",photoName: "HelpChildren"))
+        testModel.append(HelpItem(name: "Дети", photoName: "HelpChildren"))
         testModel.append(HelpItem(name: "Взрослые",photoName: "HelpAdults"))
         testModel.append(HelpItem(name: "Пожилые",photoName: "HelpElderly"))
         testModel.append(HelpItem(name: "Животные",photoName: "HelpAnimals"))
