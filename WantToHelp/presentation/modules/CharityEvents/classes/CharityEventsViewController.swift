@@ -48,6 +48,28 @@ class CharityEventsViewController: UIViewController {
     @IBAction func completedButtonPressed(_ sender: Any) {
         activeButton(segmentButton: .completed)
     }
+    
+    private func dateString(date: UInt, deadline: UInt) -> String {
+        if date > 0 {
+            let date = Date(timeIntervalSince1970: TimeInterval(date))
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "ru_RU")
+            dateFormatter.dateFormat = "LLLL d, yyyy"
+            return dateFormatter.string(from: date).capitalized
+        }
+        if deadline > 0 {
+            let deadlineDate = Date(timeIntervalSince1970: TimeInterval(deadline))
+            let currentDate = Date()
+            let currentTimestamp = currentDate.timeIntervalSince1970
+            let remainDays = deadline > UInt(currentTimestamp) ? (deadline - UInt(currentTimestamp))/86400 : 0
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "d.MM"
+            var labelValue = String(format: Constants.ui.charity.remains, remainDays)
+            labelValue.append(String(format: " (%@ - %@)", dateFormatter.string(from: currentDate), dateFormatter.string(from: deadlineDate)))
+            return labelValue
+        }
+        return ""
+    }
 }
 
 extension CharityEventsViewController: UICollectionViewDataSource {
@@ -62,24 +84,7 @@ extension CharityEventsViewController: UICollectionViewDataSource {
         cell.photoView.image = UIImage(named: item.photoNames.first ?? "CharityDefaultPhoto", in: Bundle.main, compatibleWith: nil)
         cell.headLabel.text = item.head
         cell.descriptionLabel.text = item.description
-        if item.date > 0 {
-            let date = Date(timeIntervalSince1970: TimeInterval(item.date))
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "ru_RU")
-            dateFormatter.dateFormat = "LLLL d, yyyy"
-            cell.dateLabel.text = dateFormatter.string(from: date).capitalized
-        }
-        if item.deadline > 0 {
-            let deadlineDate = Date(timeIntervalSince1970: TimeInterval(item.deadline))
-            let currentDate = Date()
-            let currentTimestamp = currentDate.timeIntervalSince1970
-            let remainDays = item.deadline > UInt(currentTimestamp) ? (item.deadline - UInt(currentTimestamp))/86400 : 0
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "d.MM"
-            var labelValue = String(format: Constants.ui.charity.remains, remainDays)
-            labelValue.append(String(format: " (%@ - %@)", dateFormatter.string(from: currentDate), dateFormatter.string(from: deadlineDate)))
-            cell.dateLabel.text = labelValue
-        }
+        cell.dateLabel.text = dateString(date: item.date, deadline: item.deadline)
         return cell
     }
 }
