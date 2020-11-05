@@ -11,7 +11,7 @@ import UIKit
 class CharityEventsBuilder {
 
     func configure(category: String) -> UIViewController {
-        let viewController = UIStoryboard.init(name: "CharityEvents", bundle: nil).instantiateInitialViewController() as! CharityEventsViewController
+        let viewController = R.storyboard.charityEvents.instantiateInitialViewController()!
 
         let router = CharityEventsRouter()
         router.transitionHandler = viewController

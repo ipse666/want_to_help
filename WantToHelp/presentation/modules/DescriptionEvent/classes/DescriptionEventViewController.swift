@@ -23,6 +23,8 @@ class DescriptionEventViewController: UIViewController {
     @IBOutlet weak var photo2View: UIImageView!
     @IBOutlet weak var photo3View: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionConstraintHeight: NSLayoutConstraint!
+    @IBOutlet weak var scrollConstraintHeight: NSLayoutConstraint!
     @IBOutlet weak var organizationSiteLabel: UILabel!
     
     var output: DescriptionEventViewOutput!
@@ -90,6 +92,10 @@ extension DescriptionEventViewController: DescriptionEventViewInput {
             photo3View.image = UIImage(named: charityEventItem.photoNames[2], in: Bundle.main, compatibleWith: nil)
         }
         descriptionTextView.text = charityEventItem.description
+        let fixedWidth = descriptionTextView.frame.size.width
+        let newSize = descriptionTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        scrollConstraintHeight.constant = CGFloat(Constants.ui.description.minimumScrollHeight) + newSize.height
+        descriptionConstraintHeight.constant = newSize.height
         organizationSiteLabel.attributedText = NSMutableAttributedString(string: Constants.ui.description.organizationSite, attributes: linkTextAttributes)
     }
 }

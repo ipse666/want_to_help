@@ -31,6 +31,7 @@ struct Constants {
             static let haveQuestions = NSLocalizedString("У вас есть вопросы?", comment: "")
             static let writeUs = NSLocalizedString("Напишите нам", comment: "")
             static let organizationSite = NSLocalizedString("Перейти на сайт организации", comment: "")
+            static let minimumScrollHeight = 535
         }
     }
 }
