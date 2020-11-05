@@ -17,6 +17,7 @@ enum TabbarButton: Int {
 
 protocol RootTabBarDelegate: NSObjectProtocol {
     func addClick()
+    func addButton(button: UIButton)
 }
 
 class RootTabBar: UITabBar {
@@ -41,15 +42,15 @@ class RootTabBar: UITabBar {
     }
     
     @objc func addButtonClick(){
+        print("-----> click button")
         if addDelegate != nil {
             addDelegate?.addClick()
         }
     }
     
     override func layoutSubviews() {
-        
         super.layoutSubviews()
-        
+
         var index = 0
         for barButton in self.subviews {
             if barButton.isKind(of: NSClassFromString("UITabBarButton")!){
@@ -60,7 +61,10 @@ class RootTabBar: UITabBar {
                 index += 1
             }
         }
-        self.bringSubviewToFront(addButton)
+        if addDelegate != nil {
+            addDelegate?.addButton(button: addButton)
+        }
+        //self.bringSubviewToFront(addButton)
     }
 }
 

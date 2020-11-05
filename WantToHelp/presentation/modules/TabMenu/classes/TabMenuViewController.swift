@@ -32,6 +32,16 @@ class TabMenuViewController: UITabBarController, RootTabBarDelegate  {
         selectButton(button: .help)
     }
     
+    func addButton(button: UIButton) {
+        var topPadding: CGFloat = 0;
+        if #available(iOS 11.0, *) {
+            let window = UIWindow.key;
+            topPadding = window?.safeAreaInsets.bottom ?? 0;
+        }
+        button.frame.origin.y = button.frame.origin.y + self.tabBar.frame.origin.y - (topPadding > 0 ? Constants.ui.tabbar.centralButtonOffset : 0)
+        self.view.addSubview(button)
+    }
+    
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         selectButton(button: TabbarButton(rawValue: item.tag)!)
     }

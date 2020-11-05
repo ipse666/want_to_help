@@ -33,17 +33,19 @@ class HelpCategoriesViewController: UIViewController {
 
 extension HelpCategoriesViewController: UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.helpes.count
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "helpCategoryCell", for: indexPath) as! HelpCategoryCell
         let helpItem: HelpItem = self.helpes[indexPath.item]
-        cell.titleLabel.text = helpItem.name
-        cell.imageView.image = UIImage(named: helpItem.photoName)
+        if let image = UIImage(named: helpItem.photoName, in: Bundle.main, compatibleWith: nil) {
+            cell.imageView.image = image
+        } else {
+            cell.imageView.image = UIImage(named: "NotImage")
+        }
+        cell.titleLabel.text = helpItem.title
         return cell
     }
 }
@@ -51,15 +53,21 @@ extension HelpCategoriesViewController: UICollectionViewDataSource {
 extension HelpCategoriesViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        let item: HelpItem = helpes[indexPath.row]
+        output.openCharity(helpItem: item)
     }
 }
 
 // MARK:- <HelpCategoriesViewInput>
 extension HelpCategoriesViewController: HelpCategoriesViewInput {
-    func setupInitialState(helpes: [HelpItem]) {
+    func setupInitialState() {
         title = Constants.ui.pageTitles.help
-        self.helpes = helpes
-        collectionView.reloadData()
+    }
+    
+    func updateCategories(categories: [HelpItem]) {
+        DispatchQueue.main.async {
+            self.helpes = categories
+            self.collectionView.reloadData()
+        }
     }
 }

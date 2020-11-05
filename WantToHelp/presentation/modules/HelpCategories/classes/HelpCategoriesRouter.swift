@@ -11,4 +11,9 @@ import UIKit
 class HelpCategoriesRouter: HelpCategoriesRouterInput {
 	weak var transitionHandler: UIViewController!
 
+    func openCharity(helpItem: HelpItem) {
+        let vc = CharityEventsBuilder().configure(category: helpItem.name)
+        vc.title = helpItem.title
+        transitionHandler.navigationController?.pushViewController(vc, animated: true)
+    }
 }

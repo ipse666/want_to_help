@@ -17,25 +17,22 @@ class HelpCategoriesPresenter {
 // MARK:- <HelpCategoriesViewOutput>
 extension HelpCategoriesPresenter: HelpCategoriesViewOutput {
     func viewIsReady() {
-        view.setupInitialState(helpes: createTestModel())
+        view.setupInitialState()
+        interactor.categories()
     }
 
     func backPressed(animated: Bool) {
         router.close(animated: animated)
     }
     
-    func createTestModel() -> [HelpItem] {
-        testModel.removeAll()
-        testModel.append(HelpItem(name: "Дети", photoName: "HelpChildren"))
-        testModel.append(HelpItem(name: "Взрослые",photoName: "HelpAdults"))
-        testModel.append(HelpItem(name: "Пожилые",photoName: "HelpElderly"))
-        testModel.append(HelpItem(name: "Животные",photoName: "HelpAnimals"))
-        testModel.append(HelpItem(name: "Мероприятия",photoName: "HelpEvents"))
-        return testModel
+    func openCharity(helpItem: HelpItem) {
+        router.openCharity(helpItem: helpItem)
     }
 }
 
 // MARK:- <HelpCategoriesInteractorOutput>
 extension HelpCategoriesPresenter: HelpCategoriesInteractorOutput {
-
+    func categories(categories: [HelpItem]) {
+        view.updateCategories(categories: categories)
+    }
 }
