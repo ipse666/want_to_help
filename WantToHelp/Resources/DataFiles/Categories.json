@@ -1,0 +1,29 @@
+{
+    "items" : [
+        {
+            "name" : "Childs",
+            "title": "Дети",
+            "photo": "HelpChildren"
+        },
+        {
+            "name" : "Adults",
+            "title": "Взрослые",
+            "photo": "HelpAdults"
+        },
+        {
+            "name" : "Elderlies",
+            "title": "Пожилые",
+            "photo": "HelpElderly"
+        },
+        {
+            "name" : "Animals",
+            "title": "Животные",
+            "photo": "HelpAnimals"
+        },
+        {
+            "name" : "Events",
+            "title": "Мероприятия",
+            "photo": "HelpEvents"
+        }
+    ]
+}

@@ -25,7 +25,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>SFUIText-Regular.otf</string>
+		<string>SFUIText-Medium.ttf</string>
 		<string>OfficinaSansExtraBoldSCC.otf</string>
+		<string>Ubuntu-Regular</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

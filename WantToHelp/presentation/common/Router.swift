@@ -27,9 +27,6 @@ extension UIViewController {
         } else if presentingViewController != nil {
             print("Close modal view controller")
             dismiss(animated: animated, completion: nil)
-        } else if view.superview != nil {
-            print("Remove view from superview")
-            view.removeFromSuperview()
         }
     }
 }

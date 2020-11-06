@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -117,7 +118,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Помочь" id="dJm-Tf-INA"/>
-                    <navigationItem key="navigationItem" id="7qM-CD-jQT"/>
+                    <navigationItem key="navigationItem" id="7qM-CD-jQT">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="FIJ-K7-BJx">
+                            <imageReference key="image" image="backIcon" symbolScale="default"/>
+                            <imageReference key="landscapeImage" image="backIcon" symbolScale="default"/>
+                            <color key="tintColor" name="white"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Kew-Ga-D5U" id="Y21-C3-lTZ"/>
@@ -130,9 +137,8 @@
         <!--Navigation Controller-->
         <scene sceneID="hj7-bp-W6r">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mi1-c7-oJr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="bE0-Mb-rva" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eAP-If-xD2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="chevron.left" catalog="system" id="eAP-If-xD2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -140,11 +146,14 @@
                         <segue destination="A3f-qx-V5d" kind="relationship" relationship="rootViewController" id="uIf-dh-Zdd"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mi1-c7-oJr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1601" y="-277"/>
         </scene>
     </scenes>
     <resources>
+        <image name="backIcon" width="12" height="21"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <namedColor name="charcoalGrey">
             <color red="0.28627450980392155" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -153,6 +162,9 @@
         </namedColor>
         <namedColor name="lightOliveGreen">
             <color red="0.61960784313725492" green="0.74901960784313726" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

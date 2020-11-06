@@ -10,26 +10,28 @@ import Foundation
 
 // MARK:- <View>
 protocol HelpCategoriesViewInput: class {
-    func setupInitialState(helpes: [HelpItem])
+    func setupInitialState()
+    func updateCategories(categories: [HelpItem])
 }
 
 protocol HelpCategoriesViewOutput {
     func viewIsReady()
     func backPressed(animated: Bool)
+    func openCharity(helpItem: HelpItem)
 }
 
 
 // MARK:- <Interactor>
 protocol HelpCategoriesInteractorInput {
-
+    func categories()
 }
 
 protocol HelpCategoriesInteractorOutput: class {
-
+    func categories(categories: [HelpItem])
 }
 
 
 // MARK:- <Router>
 protocol HelpCategoriesRouterInput: ClosableRouter  {
-
+    func openCharity(helpItem: HelpItem)
 }
