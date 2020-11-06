@@ -42,41 +42,24 @@ class DescriptionEventViewController: UIViewController {
     }
     
     @IBAction func writeUsButtonPressed(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "mailto:email@mail.com")!)
+        if let email = charityEventItem?.email, let emailUrl = URL(string: "mailto:\(email)") {
+            UIApplication.shared.open(emailUrl)
+        }
     }
     
     @IBAction func organizationSiteButtonPressed(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://google.com")!)
-    }
-    
-    private func dateString(date: UInt, deadline: UInt) -> String {
-        if date > 0 {
-            let date = Date(timeIntervalSince1970: TimeInterval(date))
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "ru_RU")
-            dateFormatter.dateFormat = "LLLL d, yyyy"
-            return dateFormatter.string(from: date).capitalized
+        if let site = charityEventItem?.site, let siteUrl = URL(string: site) {
+            UIApplication.shared.open(siteUrl)
         }
-        if deadline > 0 {
-            let deadlineDate = Date(timeIntervalSince1970: TimeInterval(deadline))
-            let currentDate = Date()
-            let currentTimestamp = currentDate.timeIntervalSince1970
-            let remainDays = deadline > UInt(currentTimestamp) ? (deadline - UInt(currentTimestamp))/86400 : 0
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "d.MM"
-            var labelValue = String(format: Constants.ui.description.remains, remainDays)
-            labelValue.append(String(format: " (%@ - %@)", dateFormatter.string(from: currentDate), dateFormatter.string(from: deadlineDate)))
-            return labelValue
-        }
-        return ""
     }
 }
 
 // MARK:- <DescriptionEventViewInput>
 extension DescriptionEventViewController: DescriptionEventViewInput {
     func setupInitialState(charityEventItem: CharityEventItem) {
+        self.charityEventItem = charityEventItem
         headerLabel.text = charityEventItem.head
-        dateLabel.text = dateString(date: charityEventItem.date, deadline: charityEventItem.deadline)
+        dateLabel.text = output.dateString(startDate: charityEventItem.startDate, endDate: charityEventItem.endDate)
         organizationLabel.text = charityEventItem.organization
         addressLabel.text = charityEventItem.address
         phone1Label.text = charityEventItem.phones.first

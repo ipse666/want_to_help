@@ -16,6 +16,7 @@ protocol DescriptionEventViewInput: class {
 protocol DescriptionEventViewOutput {
     func viewIsReady()
     func backPressed(animated: Bool)
+    func dateString(startDate: Date?, endDate: Date?) -> String
 }
 
 

@@ -18,6 +18,7 @@ protocol CharityEventsViewOutput {
     func viewIsReady()
     func backPressed(animated: Bool)
     func openDescription(charity: CharityEventItem)
+    func dateString(startDate: Date?, endDate: Date?) -> String
 }
 
 

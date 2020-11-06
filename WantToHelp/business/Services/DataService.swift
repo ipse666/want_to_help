@@ -15,7 +15,9 @@ class DataService_ {
     func getCharity(category: String, charityResult: @escaping ([CharityEventItem]) -> ()) {
         do {
             let data = try fileService.readFile(filename: "Charity")
-            let response = try! JSONDecoder().decode(CharityItems.self, from: data)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
+            let response = try! decoder.decode(CharityItems.self, from: data)
             charityResult(response.items.filter{$0.category == category})
         } catch {
             print("Не удалось получить Json из файла")

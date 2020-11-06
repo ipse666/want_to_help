@@ -14,13 +14,16 @@ struct CharityEventItem: Codable {
     var organization: String
     var address: String
     var phones: [String]
+    var email: String
+    var site: String
     var description: String
     var photoNames: [String]
-    var deadline: UInt
-    var date: UInt
+    var startDate: Date?
+    var endDate: Date?
     
     enum CodingKeys: String, CodingKey {
-        case id, category, head, organization, address, phones, description, deadline, date
+        case id, category, head, description, startDate, endDate
+        case email, site, organization, address, phones
         case photoNames = "photos"
     }
 }
