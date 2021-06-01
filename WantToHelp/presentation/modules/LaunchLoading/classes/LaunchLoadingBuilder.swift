@@ -24,5 +24,5 @@ class LaunchLoadingBuilder {
         presenter.interactor = interactor
         viewController.output = presenter
     }
-
+    
 }

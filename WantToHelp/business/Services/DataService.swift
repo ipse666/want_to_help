@@ -9,7 +9,7 @@ import UIKit
 
 let DataService = DataService_.shared
 class DataService_ {
-    static let shared: DataService_ = DataService_()
+    static let shared = DataService_()
     let fileService = FileService()
     
     func getCharity(category: String, charityResult: @escaping ([CharityEventItem]) -> ()) {

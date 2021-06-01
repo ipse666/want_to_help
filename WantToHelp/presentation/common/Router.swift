@@ -22,10 +22,8 @@ extension ClosableRouter {
 extension UIViewController {
     func closeCurrentModule(animated: Bool) {
         if let navigationController = parent as? UINavigationController, navigationController.children.count > 1 {
-            print("Close navigation controller")
             navigationController.popViewController(animated: animated)
         } else if presentingViewController != nil {
-            print("Close modal view controller")
             dismiss(animated: animated, completion: nil)
         }
     }
